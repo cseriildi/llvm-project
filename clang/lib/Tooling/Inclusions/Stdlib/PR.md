@@ -1,6 +1,6 @@
 ### **Summary**
 
-This PR adds more symbol-header mappings that `clangd` uses to detect symbols that are used but not directly included ([following the include-what-you-use model](https://clangd.llvm.org/guides/include-cleaner)).
+This PR adds more symbol-header mappings that `clang-include-cleaner`, `clangd` and `clang-tidy` use to detect symbols that are used but not directly included ([following the include-what-you-use model](https://clangd.llvm.org/guides/include-cleaner)).
 
 * **Add mappings for missing POSIX symbols** that are currently not handled. These mappings are placed in new dedicated files to avoid mixing non-standard elements with the ISO C/C++ standard library mappings.
 
