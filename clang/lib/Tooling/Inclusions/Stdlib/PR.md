@@ -29,9 +29,9 @@ We would appreciate input on the following points:
 
 2. **Is it appropriate to maintain POSIX mappings in separate files**, or should we integrate them into the existing mapping files despite them not being part of the standard library?
 
-    * Is it ok to map some POSIX symbols (e.g. `strsignal`) also to C++ headers (`<cstring>`), or should they map to C headers (`<string.h>`) only?
+3. **Is it ok to map some POSIX symbols (e.g. `strsignal`) also to C++ headers (`<cstring>`), or should they map to C headers (`<string.h>`) only?**
 
-3. Regarding `gen_std.py`: **Should an issue be opened to look into why the script finds less and less symbols?**
+4. Regarding `gen_std.py`: **Should an issue be opened to look into why the script finds less and less symbols?**
 
    * We noticed the script removed several entries that are still needed. Based on previous commits, it seems this is typically resolved by moving such entries to the `*SpecialSymbolMap.inc` files, so we did the same.
 
