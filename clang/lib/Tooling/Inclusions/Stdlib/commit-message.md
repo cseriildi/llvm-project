@@ -1,4 +1,4 @@
-[clangd] Add POSIX symbol mappings and update generated include maps
+[include-cleaner] Add POSIX symbol mappings and update generated include maps
 
 - Add missing POSIX symbol-to-header mappings (e.g., `timeval`, `strsignal`, `signal`, `errno`) to new dedicated mapping files to avoid mixing with standard library mappings.
 - Update generated `*SymbolMap.inc` files using `gen_std.py` and the latest cppreference archive.
