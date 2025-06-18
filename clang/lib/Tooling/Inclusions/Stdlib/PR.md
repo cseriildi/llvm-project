@@ -21,7 +21,7 @@ Example diagnostic message from `clangd`:<br>
 
 ### **Questions**
 
-We would appreciate input on the following points to make sure we’re building in the right direction:
+We would appreciate input on the following points:
 
 1. **Is the existing proposal in https://github.com/llvm/llvm-project/pull/66089 still planned to be completed?**
 
