@@ -10,7 +10,7 @@ This PR adds more symbol-header mappings that `clang-include-cleaner`, `clangd` 
     * Closes https://github.com/llvm/llvm-project/issues/89844 & closes https://github.com/llvm/llvm-project/issues/120830 – `signal`
     * Closes https://github.com/llvm/llvm-project/issues/134818 – `errno`
 
-* **Update the existing generated mapping files** using [`gen_std.py`](https://github.com/llvm/llvm-project/blob/main/clang/tools/include-mapping/gen_std.py) and [the latest archive](https://en.cppreference.com/w/Cppreference%253AArchives.html).
+* **Update the existing generated mapping files** using [`gen_std.py`](https://github.com/llvm/llvm-project/blob/main/clang/tools/include-mapping/gen_std.py) and [the latest archive](https://github.com/PeterFeicht/cppreference-doc/releases/tag/v20250209).
 
 * Move symbols that were previously detected by the Python script but now not anymore to `*SpecialSymbolMap.inc`, as these mappings are still needed.
 
