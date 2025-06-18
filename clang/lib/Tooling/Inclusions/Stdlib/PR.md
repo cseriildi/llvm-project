@@ -2,15 +2,15 @@
 
 This PR adds more symbol-header mappings that `clang-include-cleaner`, `clangd` and `clang-tidy` use to detect symbols that are used but not directly included ([following the include-what-you-use model](https://clangd.llvm.org/guides/include-cleaner)).
 
-* **Add mappings for missing POSIX symbols** that are currently not handled. These mappings are placed in new dedicated files to avoid mixing non-standard elements with the ISO C/C++ standard library mappings.
+* **Add mappings for missing POSIX symbols** that are currently not handled. These mappings are placed in new dedicated files to avoid mixing non-standard symbols with the ISO C/C++ standard library mappings.
 
-  * Addresses and **closes multiple open issues**, including:
+  * Addresses and **closes multiple open issues**:
     * Closes https://github.com/llvm/llvm-project/issues/64336 – `timeval`
     * Closes https://github.com/llvm/llvm-project/issues/76567 – `strsignal`
     * Closes https://github.com/llvm/llvm-project/issues/89844 & closes https://github.com/llvm/llvm-project/issues/120830 – `signal`
     * Closes https://github.com/llvm/llvm-project/issues/134818 – `errno`
 
-* **Update the existing generated mapping files** using [`gen_std.py`](https://github.com/llvm/llvm-project/blob/main/clang/tools/include-mapping/gen_std.py) and [this archive](https://en.cppreference.com/w/Cppreference%253AArchives.html).
+* **Update the existing generated mapping files** using [`gen_std.py`](https://github.com/llvm/llvm-project/blob/main/clang/tools/include-mapping/gen_std.py) and [the latest archive](https://en.cppreference.com/w/Cppreference%253AArchives.html).
 
 * Move symbols that were previously detected by the Python script but now not anymore to `*SpecialSymbolMap.inc`, as these mappings are still needed.
 
@@ -25,7 +25,7 @@ We would appreciate input on the following points to make sure we’re building 
 
 1. **Is the existing proposal in https://github.com/llvm/llvm-project/pull/66089 still planned to be completed?**
 
-   * It appears to introduce a more general solution that aligns closely with the logic of [IWYU](https://github.com/include-what-you-use/include-what-you-use/blob/master/iwyu_include_picker.cc#L346) and could potentially cover both standard and POSIX symbols in a unified way. Basically, it maps private headers to public headers, instead of symbols to public headers. This might simplify future contributions and extensions.
+   * It appears to introduce a more general solution that aligns closely with the logic of [IWYU's implementation](https://github.com/include-what-you-use/include-what-you-use/blob/master/iwyu_include_picker.cc#L346) and could potentially cover both standard and POSIX symbols in a unified way. Basically, it maps private headers to public headers, instead of symbols to public headers. This might simplify future contributions and extensions.
 
 2. **Is it appropriate to maintain POSIX mappings in separate files**, or should we integrate them into the existing mapping files despite them not being part of the standard library?
 
